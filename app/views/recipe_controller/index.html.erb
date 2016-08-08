@@ -1,0 +1,19 @@
+<h1>Recipes for: <%= @search_term %> </h1>
+
+<table border = "1">
+	<tr>
+		<th>Image</th>
+		<th>Title</th>
+		<th>Social Rank</th>
+	</tr>
+	<% @recipes.each do |recipe| %>
+		<tr>
+			<td><%= link_to image_tag(recipe["image_url"], size: "100"), recipe["source_url"] %></td>
+			<td><%= link_to sanitize_html(recipe["title"]), recipe["source_url"] %></td>
+			<td><%= recipe["social_rank"].round(2) %></td>
+		</tr>
+	<% end %>
+</table>
+
+<p></p>
+<p>Powered By Food2Fork.com</p>
